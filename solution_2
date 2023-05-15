@@ -1,0 +1,27 @@
+1) results (0 o 68)
+SELECT * 
+FROM `students`
+JOIN `degrees` ON `students`.`degree_id` = `degrees`.`id` WHERE `degrees`.`name` like 'Corso di Laurea in Economia';
+2) (1)
+SELECT *
+FROM `degrees`
+JOIN `departments` ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`name` = 'Dipartimento di Neuroscienze'
+AND `degrees`.`level` = 'magistrale';
+3) (11)
+SELECT *
+FROM `courses`
+JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id`
+WHERE `course_teacher`.`teacher_id` = 44
+4)(5000)
+SELECT  `students`.`name` ,`students`.`surname`, `departments`.name ,`degrees`.name
+FROM `students`
+JOIN `degrees` ON `students`.`degree_id` = `degrees`.`id`
+JOIN `departments` on  `degrees`.`department_id` = `departments`.`id`
+ORDER BY `students`.`name`,`students`.`surname`
+5)(1317)
+SELECT `degrees`.`name` , `degrees`.`id` ,`courses`.`name`, `courses`.`id`,`teachers`.`name` ,`teachers`.`id`
+FROM `degrees`
+JOIN `courses` on `degrees`.`id` = `courses`.`degree_id`
+JOIN `course_teacher` on `courses`.`id` = `course_teacher`.`course_id`
+JOIN `teachers` on `teachers`.`id` = `course_teacher`.`teacher_id`
