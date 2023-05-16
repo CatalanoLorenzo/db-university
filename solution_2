@@ -35,7 +35,7 @@ JOIN degrees on courses.degree_id = degrees.id
 JOIN departments on degrees.department_id = departments.id
 WHERE departments.name = 'Dipartimento di Matematica '
 
-----------------
+---------------------------------------------------------------------------------
 
 SELECT students.name, students.surname, COUNT(exam_student.exam_id) AS tentativi 
 FROM students
@@ -43,8 +43,7 @@ LEFT JOIN exam_student ON students.id = exam_student.student_id
 WHERE exam_student.vote > 17
 GROUP BY students.id;
 
-
--------------------
+----------------------------------------------------------------------------------
 
 
 
